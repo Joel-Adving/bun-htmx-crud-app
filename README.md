@@ -9,7 +9,7 @@ bun run dev
 To start server:
 
 ```bash
-bun run src/server.ts
+bun run start
 ```
 
 Open http://localhost:3000/ with your browser to see the result.

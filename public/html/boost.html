@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hx-boost</title>
+    <script defer src="https://unpkg.com/htmx.org@1.9.5"></script>
+    <link rel="stylesheet" href="/public/css/dist.css" />
+  </head>
+  <body>
+    <main class="w-full max-w-5xl px-6 py-10 mx-auto">
+      <h1 class="mb-10 text-4xl font-bold">Single page application... or is it?</h1>
+
+      <a href="/" hx-boost="true" class="text-blue-500 underline hover:text-blue-800">Home</a>
+
+      <section class="flex flex-col gap-5 pt-10">
+        <div>
+          <button
+            hx-post="/misc/clicked"
+            hx-swap="innerHTML"
+            hx-target="#clickd"
+            class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 max-w-fit h-11"
+          >
+            Random number
+          </button>
+          <div id="clickd" class="flex flex-row mt-6"></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

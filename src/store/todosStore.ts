@@ -4,7 +4,7 @@ import { TodoRequestBody } from '../routes/todos'
 export type Todo = {
   id: number
   title: string
-  completed: 0 | 1 // sqlite only suppoert boolean as 0 or 1
+  completed: 0 | 1 // sqlite boolean type is either 0 or 1
 }
 
 export class TodosStore {

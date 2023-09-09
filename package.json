@@ -3,7 +3,10 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/server.ts && bun tailwind --watch",
+    "tailwind": "npx tailwindcss -i ./public/css/main.css -o ./public/css/dist.css",
+    "tailwind:build": "bun run tailwind --minify",
+    "start": "bun run src/server.ts"
   },
   "dependencies": {
     "@elysiajs/html": "^0.6.4",
@@ -14,5 +17,5 @@
     "bun-types": "latest",
     "tailwindcss": "^3.3.3"
   },
-  "module": "src/index.ts"
+  "module": "src/server.ts"
 }

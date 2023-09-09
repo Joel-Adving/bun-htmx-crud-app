@@ -1,4 +1,6 @@
-# Elysia with Bun runtime
+# Elysia with Bun runtime + htmx
+
+live demo: https://bun-test.oki.gg/
 
 To start the development server run:
 

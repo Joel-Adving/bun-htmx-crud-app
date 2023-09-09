@@ -6,20 +6,19 @@
     <title>Go + htmx</title>
     <script defer src="https://unpkg.com/htmx.org@1.9.5"></script>
     <link rel="stylesheet" href="/public/css/dist.css" />
+    <link rel="stylesheet" href="/public/css/globals.css" />
   </head>
   <body>
     <main class="w-full max-w-5xl px-6 py-10 mx-auto">
       <h1 class="mb-10 text-4xl font-bold">Bun + htmx</h1>
-
       <a href="/boost" hx-boost="true" class="text-blue-500 underline hover:text-blue-800">Page 2</a>
-
       <section class="pt-10">
         <form
           hx-post="/todos"
           hx-swap="afterbegin"
           hx-target="#todos"
           hx-on::after-request="this.reset()"
-          class="flex items-center gap-3 mb-10"
+          class="flex gap-4 mb-10"
         >
           <input
             required
@@ -28,17 +27,14 @@
             placeholder="title"
             class="px-4 py-2 border-2 border-gray-400 rounded h-11"
           />
-          <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded h-11 hover:bg-blue-700">
+          <button
+            type="submit"
+            class="px-4 py-2 font-bold text-white bg-blue-500 rounded h-11 whitespace-nowrap hover:bg-blue-700"
+          >
             Add todo
           </button>
         </form>
-        <div
-          id="todos"
-          hx-get="/todos"
-          hx-trigger="load"
-          hx-swap="innerHTML"
-          class="flex flex-col gap-4 transition-none"
-        ></div>
+        <div id="todos" hx-get="/todos" hx-trigger="load" hx-swap="innerHTML" class="flex flex-col"></div>
       </section>
     </main>
   </body>

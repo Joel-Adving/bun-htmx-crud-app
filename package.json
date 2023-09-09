@@ -3,8 +3,9 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/server.ts && bun tailwind --watch",
-    "tailwind": "npx tailwindcss -i ./public/css/main.css -o ./public/css/dist.css",
+    "dev": "concurrently \"bun run --watch src/server.ts\" \"bun run tailwind:watch\"",
+    "tailwind": "bunx tailwindcss -i ./public/css/main.css -o ./public/css/dist.css",
+    "tailwind:watch": "bun run tailwind --watch",
     "tailwind:build": "bun run tailwind --minify",
     "start": "bun run src/server.ts"
   },
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "bun-types": "latest",
+    "concurrently": "^8.2.1",
     "tailwindcss": "^3.3.3"
   },
   "module": "src/server.ts"

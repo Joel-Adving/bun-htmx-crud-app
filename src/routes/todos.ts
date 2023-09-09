@@ -41,18 +41,21 @@ async function handleDeleteTodo({ todosStore, params }: Pick<TodoRequest, 'todos
 function todoTemplate(todo: Todo) {
   const completed = toBoolean(todo.completed)
   return `
-      <div id="todo-${todo.id}" class="flex justify-between items-center border-b py-3">
-        <div class="flex gap-3 items-center">
+      <div id="todo-${todo.id}" class="flex justify-between items-center border-y -mt-[1px] py-3">
+        <div class="flex gap-3 items-center w-full">
             ${completed ? '<div>✅</div>' : ''}
           <form 
             hx-put="/todos/${todo.id}"
             hx-swap="outerHTML"
             hx-trigger="click"
             hx-target="#todo-${todo.id}"
+            class="w-full"
            >
             <input name="completed" type="number" value="${fromBoolean(!completed)}" hidden/>
             <input name="title" type="text" value="${todo.title}" hidden/>
-            <button type="submit" class="${completed ? 'line-through' : ''} text-xl hover:cursor-pointer">
+            <button type="submit" class="${
+              completed ? 'line-through' : ''
+            } text-xl hover:cursor-pointer text-left wrap-balance w-full">
               ${todo.title}
             </button>
           </form>

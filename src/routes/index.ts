@@ -4,5 +4,9 @@ import { miscRoutes } from './misc'
 import { todosRoutes } from './todos'
 
 export function routes(app: Elysia) {
-  return app.use(viewRoutes).use(miscRoutes).use(todosRoutes)
+  return app
+    .use(viewRoutes)
+    .use(miscRoutes)
+    .use(todosRoutes)
+    .get('/*', () => Bun.file('./public/html/404.html'))
 }
